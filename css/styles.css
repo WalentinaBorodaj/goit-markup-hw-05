@@ -179,6 +179,65 @@ img {
   color: var(--text-hero);
   max-width: 696px;
 }
+.box-title-btn {
+  border-radius: 4px;
+  justify-content: center;
+  margin: auto;
+  border-color: transparent;
+  padding: 10px 32px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+/* --------------------MODAL------------------------------------ */
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.backdrop.is-hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+transform: translate(-50%, -50% );
+min-height: 528px;
+min-width: 581px;
+padding: 8px;
+background-color: var(--text-hero);
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+
+}
+.modal-close {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
 
 
 /* /* --------------ABOUT---------------- 
@@ -239,7 +298,36 @@ justify-content: center;
 
 .works-list {
   display: flex;
+  margin-top: -30px;
+  margin-left: -30px;
 }
+.works-img{
+  position: relative;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+ 
+.works-text{
+
+
+position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  padding: 27px 0;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--text-hero);
+  background: rgba(47, 48, 58, 0.8);
+}
+
+
 .works-img:not(:last-child) {
   margin-right: 30px;
 }
@@ -255,8 +343,7 @@ justify-content: center;
 /* ---------MASTERS----------------- */
 .masters {
   background-color: #f5f4fa;
-  /* padding-top: 94px; */
-  /* padding-bottom: 94px; */
+ 
 
 }
 .masters-list {
@@ -270,7 +357,7 @@ justify-content: center;
   flex-basis: calc(100% / 4 - var(--card-set-gap));
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
-  background: #ffffff;
+  background: var(--text-hero);;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -278,7 +365,7 @@ justify-content: center;
 }
 .social-list{
   display: flex;
-  justify-content: center;
+ 
 }
 .social-item :not(:last-child){
   margin-right: 10px;
@@ -287,15 +374,13 @@ justify-content: center;
 
 .social-link:hover,
 .social-link:focus{
-  fill: #fff;
+  fill: var(--text-hero);;
   background-color: var(--accent-color);
 
 }
 
-.social-item{
-  
-  padding-top: 16px;
-}
+
+
 .social-link{
   width: 100%;
   height:100% ;
@@ -304,9 +389,10 @@ justify-content: center;
 align-items: center;
 justify-content: center;
 border-radius: 50%;
-background-color: #fff;
+background-color: var(--text-hero);
 width: 44px;
 height: 44px;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
   
@@ -340,24 +426,22 @@ padding-bottom: 30px;
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--second-title-color);
+  margin-bottom: 10px;
 }
 .masters-item-text {
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
-  margin-top: 10px;
+  margin-bottom: 16px;
  
   
 }
 /* ----------clients --------------*/
-.clients{
-  /* padding-top: 94px; */
-  /* padding-bottom: 94px; */
-}
+
 .clients-item{
   display:flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-top: 50px;
   }
 .clients-title{
@@ -368,7 +452,10 @@ padding-bottom: 30px;
   letter-spacing: 0.03em;
   color: var(--second-title-color);
   }
-
+  .clients-logo:not(:last-child) {
+    margin-right: 30px;
+  }
+  
 .clients-logo{
 width: 170px;
 height: 92px;
@@ -401,6 +488,11 @@ display: flex;
   border: 1px solid #2196F3;
 
 }
+.clients-icon, .clients-logo{
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
 
 
 /* --------FOOTER--------------- */
@@ -413,7 +505,7 @@ display: flex;
   display: flex;
 }
 .footer-item{
-  margin-top: 9px;
+  /* margin-top: 9px; */
 
 }
 .footer-social{
@@ -428,6 +520,9 @@ margin-right: 10px;
 .footer-social-link:focus {
   background-color: #2196F3;
 } 
+.footer-social-link{
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .footer-social-item{
   display: flex;
   
@@ -480,15 +575,14 @@ font-size: 14px;
 line-height: 1.14;
 letter-spacing: 0.03em;
 text-transform: uppercase;
-color: #FFFFFF;
+color: var(--text-hero);
 margin-bottom: 20px;
 }
 .footer-social-link{
   width: 100%;
   height:100% ;
-  fill: #FFFFFF;
- 
-display:flex;
+  fill: var(--text-hero);
+  display:flex;
 align-items: center;
 justify-content: center;
 border-radius: 100%;
@@ -507,6 +601,12 @@ background-color:rgba(255, 255, 255, 0.1);
 .logo:hover,
 .logo:focus {
   color: var(--accent-color);
+}
+.footer-link, .footer-link-contacts,
+.footer-logo, .link-contacts,
+.logo {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 /* ------ PORTFOLIO СТРАНИЦА 2----- */
@@ -562,6 +662,9 @@ background-color:rgba(255, 255, 255, 0.1);
   color: var(--text-hero);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+.portfolio-title-btn{
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .acccent {
   background-color: var(--accent-color);
   color: var(--text-hero);
@@ -573,6 +676,7 @@ background-color:rgba(255, 255, 255, 0.1);
    
    text-decoration: none;
    display: block;
+   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
    
 }
 .card:hover,
@@ -653,6 +757,7 @@ background-color:rgba(255, 255, 255, 0.1);
   transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .card-thumb{
   position: relative;
