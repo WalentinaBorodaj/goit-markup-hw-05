@@ -503,6 +503,7 @@ display: flex;
 }
 .footer-container{
   display: flex;
+  align-items: baseline;
 }
 .footer-item{
   /* margin-top: 9px; */
@@ -642,8 +643,8 @@ background-color:rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   padding: 6px 22px;
   
-    display: inline-block;
-    margin-top: 30px;
+  display: inline-block;
+  margin-top: 30px;
   align-items: center;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -665,10 +666,10 @@ background-color:rgba(255, 255, 255, 0.1);
 .portfolio-title-btn{
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.acccent {
+/* .acccent {
   background-color: var(--accent-color);
   color: var(--text-hero);
-}
+} */
 
 /* -------work-examples ---------*/
 
@@ -741,20 +742,19 @@ background-color:rgba(255, 255, 255, 0.1);
   background: var(--accent-color);
   border-radius: 2px;
 }
-.overlay{
+
+.overlay {
   position: absolute;
   top: 0;
-  width: 100%;
+  left: 0;
   height: 100%;
-  overflow: auto;
-  background-color: var(--accent-color);
   padding: 63px 24px;
-
+  color:r(--text-hero) ;
   font-size: 18px;
   line-height: 1.5;
-  color: var(--text-hero);
-
-  transform: translateY(101%);
+  background-color:var(--accent-color) ;
+  overflow: auto;
+  transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -764,5 +764,5 @@ background-color:rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 .works-img{
-  display: block;
+  /* display: block; */
 }
